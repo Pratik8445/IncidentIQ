@@ -1,0 +1,161 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  transition: transform var(--transition);
+}
+
+/* ── Logo ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-5);
+  height: var(--topbar-height);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.logoIconWrap { position: relative; display: flex; align-items: center; }
+.logoIcon { font-size: 22px; }
+.logoPulse {
+  position: absolute;
+  top: 0; right: -2px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--low);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+.logoText {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+.logoSub {
+  display: block;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Nav ── */
+.nav {
+  flex: 1;
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  overflow-y: auto;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+  position: relative;
+}
+.link:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+.active {
+  background: var(--brand-glow);
+  color: var(--brand);
+  border: 1px solid rgba(59,130,246,0.2);
+}
+.linkIcon { font-size: 16px; width: 20px; text-align: center; flex-shrink: 0; }
+.linkLabel { flex: 1; }
+
+/* Live badge — shows open incident count */
+.badge {
+  background: var(--critical);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  animation: badgePop 0.3s ease;
+}
+@keyframes badgePop {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ── System status box ── */
+.statusBox {
+  margin: 0 var(--space-3) var(--space-3);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.statusDot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--low);
+  flex-shrink: 0;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+.statusText { font-size: 11px; color: var(--text-secondary); font-weight: 500; }
+.statusStat { font-size: 11px; color: var(--text-muted); padding-left: 15px; }
+
+/* ── Footer ── */
+.footer {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--border);
+}
+.version { font-size: 11px; color: var(--text-muted); }
+
+/* ── Overlay (mobile) ── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  z-index: 99;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .overlay {
+    display: block;
+  }
+}

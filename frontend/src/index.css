@@ -1,0 +1,112 @@
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+
+/* Page-level fade-in */
+#root { animation: rootIn 0.2s ease; }
+@keyframes rootIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ─── Design Tokens ──────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-base:        #0a0e1a;
+  --bg-surface:     #111827;
+  --bg-elevated:    #1a2236;
+  --bg-hover:       #1f2d44;
+  --bg-overlay:     rgba(0,0,0,0.65);
+
+  /* Borders */
+  --border:         #1e2d45;
+  --border-light:   #263352;
+
+  /* Text */
+  --text-primary:   #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted:     #64748b;
+  --text-inverse:   #0a0e1a;
+
+  /* Brand */
+  --brand:          #3b82f6;
+  --brand-dark:     #2563eb;
+  --brand-glow:     rgba(59,130,246,0.15);
+
+  /* Severity */
+  --critical:       #ef4444;
+  --critical-bg:    rgba(239,68,68,0.12);
+  --high:           #f97316;
+  --high-bg:        rgba(249,115,22,0.12);
+  --medium:         #eab308;
+  --medium-bg:      rgba(234,179,8,0.12);
+  --low:            #22c55e;
+  --low-bg:         rgba(34,197,94,0.12);
+
+  /* Status */
+  --status-open:       #f97316;
+  --status-open-bg:    rgba(249,115,22,0.12);
+  --status-progress:   #3b82f6;
+  --status-progress-bg:rgba(59,130,246,0.12);
+  --status-resolved:   #22c55e;
+  --status-resolved-bg:rgba(34,197,94,0.12);
+  --status-closed:     #64748b;
+  --status-closed-bg:  rgba(100,116,139,0.12);
+
+  /* Log levels */
+  --level-debug:    #64748b;
+  --level-info:     #3b82f6;
+  --level-warning:  #eab308;
+  --level-error:    #ef4444;
+  --level-critical: #dc2626;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius:    8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+  --shadow:     0 4px 12px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.6);
+
+  /* Sidebar */
+  --sidebar-width: 240px;
+  --topbar-height: 60px;
+
+  /* Transitions */
+  --transition: 150ms ease;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ─── Utils ──────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}

@@ -1,0 +1,171 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-base);
+  padding: var(--space-4);
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(59,130,246,0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(59,130,246,0.05) 0%, transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(34,197,94,0.03) 0%, transparent 40%);
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow-lg);
+  animation: cardIn 0.25s ease;
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+.brandIcon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: var(--space-3);
+  filter: drop-shadow(0 0 12px rgba(59,130,246,0.4));
+}
+.brandName {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+  letter-spacing: -0.01em;
+}
+.brandSub { font-size: 13px; color: var(--text-muted); }
+
+/* Feature pills shown on login page */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+}
+.featurePill {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.input {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  border-radius: var(--radius);
+  padding: 10px var(--space-4);
+  font-size: 14px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+}
+.input:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--brand-glow);
+}
+.input::placeholder { color: var(--text-muted); }
+select.input { cursor: pointer; }
+
+/* Role option descriptions */
+.roleHint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: #fca5a5;
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+}
+.errorIcon { flex-shrink: 0; }
+
+.success {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--low);
+  background: var(--low-bg);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+}
+
+.submitBtn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: var(--space-2);
+  transition: background var(--transition), opacity var(--transition), transform var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.submitBtn:hover:not(:disabled) {
+  background: var(--brand-dark);
+  transform: translateY(-1px);
+}
+.submitBtn:active:not(:disabled) { transform: translateY(0); }
+.submitBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-2) 0;
+}
+.dividerLine { flex: 1; height: 1px; background: var(--border); }
+.dividerText { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+
+.switchText {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: var(--space-5);
+}
+.switchLink { color: var(--brand); font-weight: 600; }
+.switchLink:hover { text-decoration: underline; }
